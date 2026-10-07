@@ -1,10 +1,23 @@
 import { test, expect } from './fixtures';
+import { metadata } from 'playwright-qa-reporter';
 
 const VALID = { email: process.env.TEST_EMAIL!, password: process.env.TEST_PASSWORD! };
 
 test.describe('MediShop login', () => {
   // Logs in with valid credentials and checks the home page and time-of-day greeting appear.
-  test('valid credentials land on the home page', async ({ loginPage }) => {
+  test('valid credentials land on the home page',
+    {
+      annotation: metadata({
+        priority: 'P0',
+        severity: 'blocker',
+        owner: 'Rahul',
+        feature: 'Authentication',
+        team: 'Platform',
+        stories: ['AUTH-101', 'AUTH-102'],
+        epic: 'AUTH-1',
+        tags: ['smoke'],
+      }),
+    }, async ({ loginPage }) => {
     const home = await loginPage.login(VALID.email, VALID.password);
 
     await home.expectLoaded();
