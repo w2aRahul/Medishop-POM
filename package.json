@@ -1,0 +1,20 @@
+{
+  "name": "medishop-modern-pom",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simple Modern Playwright POM demo for Lecture 4",
+  "scripts": {
+    "test": "playwright test --project=chromium",
+    "test:headed": "playwright test --project=chromium --headed",
+    "test:chrome": "playwright test --project=chrome --headed",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.6"
+  }
+}
